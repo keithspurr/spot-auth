@@ -7,7 +7,9 @@ app.listen(port, () => {
     console.log('Server started!');
   });
 
-
+  app.route('/api/authorize').options((req,res)=>{
+      return;
+  });
   app.route('/api/authorize').get((req, res) => {
 
     var request = require('request'); // "Request" library
