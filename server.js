@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 
 const port = process.env.PORT;
-
 app.listen(port, () => {
     console.log('Server started!');
   });
@@ -27,17 +26,17 @@ app.listen(port, () => {
     };
 
     var AuthReponse = request.post(authOptions, function(error, response, body) {
-        if (!error && response.statusCode === 200) {
+        if (!error) {
             console.log(response.body);
-          // use the access token to access the Spotify Web API
-          return response.body;
+          res.send(
+            response.body
+            );
         } else {
             console.log(error);
-            return error;
+            res.send(
+                error
+            );
         }
       });
 
-    res.send(
-        AuthReponse
-    );
   });
