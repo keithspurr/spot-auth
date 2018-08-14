@@ -11,7 +11,7 @@ app.listen(port, () => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-    res.send(200);
+    next();
   });
   app.route('/api/authorize').get((req, res) => {
 
