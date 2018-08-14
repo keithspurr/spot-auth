@@ -8,6 +8,8 @@ app.listen(port, () => {
   });
 
   app.route('/api/authorize').options((req,res)=>{
+      res.headers["access-control-allow-origin"] = '*';
+      res.send(res);
       return;
   });
   app.route('/api/authorize').get((req, res) => {
@@ -30,6 +32,7 @@ app.listen(port, () => {
     var AuthReponse = request.post(authOptions, function(error, response, body) {
         if (!error) {
             console.log(response.body);
+            response.headers["access-control-allow-origin"] = '*';
           res.send(
             response.body
             );
