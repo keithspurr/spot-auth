@@ -33,8 +33,11 @@ app.listen(port, () => {
     var AuthReponse = request.post(authOptions, function(error, response, body) {
         if (!error) {
             console.log(response.body);
-            response.headers["access-control-allow-origin"] = '*';
-          res.send(
+            res.header('Access-Control-Allow-Origin', '*');
+            res.header('Access-Control-Allow-Methods', 'GET,OPTIONS');
+            res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+            
+            res.send(
             response.body
             );
         } else {
