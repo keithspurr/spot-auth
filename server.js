@@ -8,9 +8,10 @@ app.listen(port, () => {
   });
 
   app.route('/api/authorize').options((req,res)=>{
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.send(res);
+    response = new Response();
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.send(response);
   });
   app.route('/api/authorize').get((req, res) => {
 
